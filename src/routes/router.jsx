@@ -7,6 +7,7 @@ import AddTutorial from "./../pages/add-tutorial/AddTutorial";
 import MyTutorial from "./../pages/my-turorial/MyTutorial";
 import MyBooked from "./../pages/Mybooked/MyBooked";
 import Update from "./../pages/update/Update";
+import Details from "../pages/details/Details";
 
 export const router = createBrowserRouter([
   {
@@ -37,6 +38,10 @@ export const router = createBrowserRouter([
       {
         path: "/update",
         element: <Update></Update>,
+      },
+      {
+        path: "/details",
+        element: <Details></Details>,
       },
     ],
   },

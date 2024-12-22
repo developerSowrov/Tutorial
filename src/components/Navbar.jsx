@@ -12,7 +12,9 @@ const Navbar = () => {
         </div>
         <div className="flex-none">
           <div>
-            <button className="btn mr-2 font-semibold">Logout</button>
+            <button className="btn mr-2 font-semibold bg-yellow-500 text-white">
+              Logout
+            </button>
           </div>
           <div className="dropdown dropdown-end">
             <div
