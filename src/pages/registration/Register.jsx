@@ -1,9 +1,10 @@
 import React, { useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/Authprovider";
 
 const Register = () => {
-  const { creatUser } = useContext(AuthContext);
+  const { creatUser, profile } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,7 +13,13 @@ const Register = () => {
     const password = form.password.value;
     const photoURL = form.photoURL.value;
     creatUser(email, password)
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        profile(name, photoURL)
+          .then((data) => console.log(data))
+          .catch((err) => console.log(err));
+        navigate("/");
+      })
       .catch((err) => console.log(err));
   };
   return (
