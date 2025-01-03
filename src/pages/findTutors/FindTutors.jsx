@@ -33,8 +33,8 @@ const FindTutors = () => {
                 </h3>
                 <p className="text-gray-600">Language: {tutorial.language}</p>
                 <p className="text-gray-600">Review: {tutorial.review}</p>
-                <p className="text-gray-600">Price: {tutorial.price}</p>
-                <Link to={"/tutor/details"}>
+                <p className="text-gray-600">Price: {tutorial.price} BDT</p>
+                <Link to={`/tutor/${tutorial._id}`}>
                   <button className="mt-4 w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">
                     View Details
                   </button>

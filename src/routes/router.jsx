@@ -51,8 +51,10 @@ export const router = createBrowserRouter([
         element: <Update></Update>,
       },
       {
-        path: "/tutor/details",
+        path: "/tutor/:id",
         element: <Details></Details>,
+        loader: ({ params }) =>
+          fetch(`${import.meta.env.VITE_localhost}/details/${params.id}`),
       },
       {
         path: "/login",

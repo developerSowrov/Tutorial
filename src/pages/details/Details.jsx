@@ -1,6 +1,8 @@
 import React from "react";
+import { useLoaderData } from "react-router-dom";
 
 const Details = () => {
+  const teacher = useLoaderData();
   return (
     <div>
       <div className="bg-base-200 min-h-screen py-8">
@@ -10,7 +12,7 @@ const Details = () => {
               {/* Tutor Image */}
               <div>
                 <img
-                  src="https://via.placeholder.com/400"
+                  src={teacher.image}
                   alt="Tutor"
                   className="w-full h-auto rounded-md"
                 />
@@ -19,24 +21,26 @@ const Details = () => {
               {/* Tutor Details */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                  John Doe
+                  {teacher.name}
                 </h2>
                 <p className="text-gray-600 mb-2">
-                  <span className="font-semibold">Language:</span> English
+                  <span className="font-semibold">Language:</span>{" "}
+                  {teacher.language}
                 </p>
                 <p className="text-gray-600 mb-2">
-                  <span className="font-semibold">Price:</span> $100
+                  <span className="font-semibold">Price:</span>
+                  {teacher.price}
                 </p>
                 <p className="text-gray-600 mb-2">
-                  <span className="font-semibold">Review:</span> 4.5
+                  <span className="font-semibold">Review:</span>{" "}
+                  {teacher.review}
                 </p>
                 <p className="text-gray-600 mb-4">
-                  <span className="font-semibold">Description:</span> This is a
-                  detailed description about the tutor's expertise and teaching
-                  style.
+                  <span className="font-semibold">Description:</span>{" "}
+                  {teacher.description}
                 </p>
                 {/* Book Button */}
-                <button className="w-full bg-blue-500 hover:bg-blue-600 text-white py-2 px-4 rounded-md">
+                <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">
                   Book Now
                 </button>
               </div>
