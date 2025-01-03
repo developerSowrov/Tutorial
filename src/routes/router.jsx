@@ -29,6 +29,10 @@ export const router = createBrowserRouter([
       {
         path: "/find-tutors/:category",
         element: <CategoryTutors></CategoryTutors>,
+        loader: ({ params }) =>
+          fetch(
+            `${import.meta.env.VITE_localhost}/find-tutors/${params.category}`
+          ),
       },
       {
         path: "/add-tutorial",

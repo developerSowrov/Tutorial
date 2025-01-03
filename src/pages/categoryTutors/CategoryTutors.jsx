@@ -1,6 +1,8 @@
 import React from "react";
+import { Link, useLoaderData } from "react-router-dom";
 
 const CategoryTutors = () => {
+  const tutorials = useLoaderData();
   return (
     <div>
       <div className="bg-base-200 mt-20 py-8 rounded-xl">

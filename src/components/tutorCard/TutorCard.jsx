@@ -7,7 +7,7 @@ const TutorCard = () => {
       <div className=" my-16 p-8 ">
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
           {/* Card 1 */}
-          <Link to={"/find-tutors/english"}>
+          <Link to={"/find-tutors/English"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -27,7 +27,7 @@ const TutorCard = () => {
           </Link>
 
           {/* Card 2 */}
-          <Link to={"/find-tutors/spanish"}>
+          <Link to={"/find-tutors/Spanish"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -47,7 +47,7 @@ const TutorCard = () => {
           </Link>
 
           {/* Card 3 */}
-          <Link to={"/find-tutors/french"}>
+          <Link to={"/find-tutors/French"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -67,7 +67,7 @@ const TutorCard = () => {
           </Link>
 
           {/* Card 4 */}
-          <Link to={"/find-tutors/german"}>
+          <Link to={"/find-tutors/German"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -87,7 +87,7 @@ const TutorCard = () => {
           </Link>
 
           {/* Card 5 */}
-          <Link to={"/find-tutors/italian"}>
+          <Link to={"/find-tutors/Italian"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -107,7 +107,7 @@ const TutorCard = () => {
           </Link>
 
           {/* Card 6 */}
-          <Link to={"/find-tutors/chiness"}>
+          <Link to={"/find-tutors/Chiness"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -126,7 +126,7 @@ const TutorCard = () => {
             </div>
           </Link>
 
-          <Link to={"/find-tutors/korean"}>
+          <Link to={"/find-tutors/Korean"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -145,7 +145,7 @@ const TutorCard = () => {
             </div>
           </Link>
 
-          <Link to={"/find-tutors/russian"}>
+          <Link to={"/find-tutors/Russian"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
@@ -164,7 +164,7 @@ const TutorCard = () => {
             </div>
           </Link>
 
-          <Link to={"/find-tutors/affrican"}>
+          <Link to={"/find-tutors/Affrican"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img
