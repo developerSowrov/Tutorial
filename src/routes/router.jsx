@@ -10,6 +10,7 @@ import Update from "./../pages/update/Update";
 import Details from "../pages/details/Details";
 import Login from "../pages/login/Login";
 import Register from "../pages/registration/Register";
+import CategoryTutors from "../pages/categoryTutors/CategoryTutors";
 
 export const router = createBrowserRouter([
   {
@@ -24,6 +25,10 @@ export const router = createBrowserRouter([
       {
         path: "/find-tutors",
         element: <FindTutors></FindTutors>,
+      },
+      {
+        path: "/find-tutors/:category",
+        element: <CategoryTutors></CategoryTutors>,
       },
       {
         path: "/add-tutorial",
