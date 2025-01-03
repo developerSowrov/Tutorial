@@ -1,12 +1,38 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../../components/firebase/Authprovider";
+import axios from "axios";
 
 const AddTutorial = () => {
+  const { user } = useContext(AuthContext);
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value;
+    const email = form.email.value;
+    const image = form.image.value;
+    const language = form.language.value;
+    const price = form.price.value;
+    const description = form.description.value;
+    const review = form.review.value;
+
+    // Consolidate all form data into an object
+    const formData = {
+      name,
+      email,
+      image,
+      language,
+      price,
+      description,
+      review,
+    };
+    axios.post(`${import.meta.env.VITE_localhost}/add`, formData);
+  };
   return (
     <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6 mt-10">
       <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
         Add Tutorials
       </h2>
-      <form>
+      <form onSubmit={handleSubmit}>
         {/* Name Field */}
         <div className="mb-4">
           <label
@@ -19,6 +45,8 @@ const AddTutorial = () => {
             type="text"
             id="name"
             name="name"
+            defaultValue={user?.displayName}
+            disabled
             placeholder="Enter your name"
             className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           />
@@ -36,6 +64,8 @@ const AddTutorial = () => {
             type="email"
             id="email"
             name="email"
+            defaultValue={user?.email}
+            disabled
             placeholder="Enter your email"
             className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           />
@@ -72,10 +102,15 @@ const AddTutorial = () => {
             className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           >
             <option value="">Select a language</option>
-            <option value="english">English</option>
-            <option value="spanish">Spanish</option>
-            <option value="french">French</option>
-            <option value="german">German</option>
+            <option value="English">English</option>
+            <option value="Spanish">Spanish</option>
+            <option value="French">French</option>
+            <option value="German">German</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Korean">Korean</option>
+            <option value="Russian">Russian</option>
+            <option value="Affrican">Affrican</option>
+            <option value="Italian">Italian</option>
           </select>
         </div>
 

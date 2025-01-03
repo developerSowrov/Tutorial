@@ -88,6 +88,42 @@ const TutorCard = () => {
               <span className="text-gray-400 text-xl">&gt;</span>
             </div>
           </div>
+          <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
+            <div className="flex items-center space-x-4">
+              <img src="path-to-logo.png" alt="Chinese" className="w-10 h-10" />
+              <div>
+                <h2 className="text-lg font-semibold">Korean tutors</h2>
+                <p className="text-gray-500 text-sm">2,324 teachers</p>
+              </div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xl">&gt;</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
+            <div className="flex items-center space-x-4">
+              <img src="path-to-logo.png" alt="Chinese" className="w-10 h-10" />
+              <div>
+                <h2 className="text-lg font-semibold">Russian tutors</h2>
+                <p className="text-gray-500 text-sm">2,324 teachers</p>
+              </div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xl">&gt;</span>
+            </div>
+          </div>
+          <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
+            <div className="flex items-center space-x-4">
+              <img src="path-to-logo.png" alt="Chinese" className="w-10 h-10" />
+              <div>
+                <h2 className="text-lg font-semibold">Affrican tutors</h2>
+                <p className="text-gray-500 text-sm">2,324 teachers</p>
+              </div>
+            </div>
+            <div>
+              <span className="text-gray-400 text-xl">&gt;</span>
+            </div>
+          </div>
         </div>
       </div>
     </div>

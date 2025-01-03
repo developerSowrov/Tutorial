@@ -22,7 +22,7 @@ const FindTutors = () => {
               <p className="text-gray-600">Language: English</p>
               <p className="text-gray-600">Review: 4.5</p>
               <p className="text-gray-600">Price: 400</p>
-              <Link to={"/details"}>
+              <Link to={"/tutor/details"}>
                 <button className="mt-4 w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">
                   View Details
                 </button>
