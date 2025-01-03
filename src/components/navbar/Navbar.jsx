@@ -55,7 +55,9 @@ const Navbar = () => {
                     <NavLink to={"/add-tutorial"}>Add Tutorials</NavLink>
                   </li>
                   <li>
-                    <NavLink to={"/my-tutorial"}>My Tutorials</NavLink>
+                    <NavLink to={`/my-tutorial/${user.email}`}>
+                      My Tutorials
+                    </NavLink>
                   </li>
                   <li>
                     <NavLink to={"/my-booked"}>My booked tutors</NavLink>

@@ -39,8 +39,12 @@ export const router = createBrowserRouter([
         element: <AddTutorial></AddTutorial>,
       },
       {
-        path: "/my-tutorial",
+        path: "/my-tutorial/:email",
         element: <MyTutorial></MyTutorial>,
+        loader: ({ params }) =>
+          fetch(
+            `${import.meta.env.VITE_localhost}/my-tutorial/${params.email}`
+          ),
       },
       {
         path: "/my-booked",

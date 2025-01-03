@@ -1,7 +1,8 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLoaderData } from "react-router-dom";
 
 const MyTutorial = () => {
+  const myTutorials = useLoaderData();
   return (
     <div>
       <div className="max-w-6xl mx-auto bg-white shadow-md rounded-md p-6 mt-10">
@@ -37,35 +38,36 @@ const MyTutorial = () => {
           </thead>
 
           <tbody>
-            {/* Example row: Repeat this for each tutorial */}
-            <tr className="border-b">
-              <td className="px-6 py-3 text-gray-800">Tutorial Name</td>
-              <td className="px-6 py-3">
-                <img
-                  src="image_url_here"
-                  alt="Tutorial"
-                  className="w-16 h-16 object-cover rounded-md"
-                />
-              </td>
-              <td className="px-6 py-3 text-gray-800">English</td>
-              <td className="px-6 py-3 text-gray-800">$100</td>
-              <td className="px-6 py-3 text-gray-800">
-                Brief description of the tutorial.
-              </td>
-              <td className="px-6 py-3 text-gray-800">4.5</td>
-              <td className="px-6 py-3">
-                <Link to={"/update"}>
-                  <button className="px-4 py-2 text-white bg-yellow-500 hover:bg-yellow-600 rounded-md mr-2">
-                    Update
+            {myTutorials?.map((myTutorial) => (
+              <tr className="border-b">
+                <td className="px-6 py-3 text-gray-800">{myTutorial.name}</td>
+                <td className="px-6 py-3">
+                  <img
+                    src="image_url_here"
+                    alt="Tutorial"
+                    className="w-16 h-16 object-cover rounded-md"
+                  />
+                </td>
+                <td className="px-6 py-3 text-gray-800">
+                  {myTutorial.language}
+                </td>
+                <td className="px-6 py-3 text-gray-800">{myTutorial.price}</td>
+                <td className="px-6 py-3 text-gray-800">
+                  {myTutorial.description.slice(0, 15)}...
+                </td>
+                <td className="px-6 py-3 text-gray-800">{myTutorial.review}</td>
+                <td className="px-6 py-3">
+                  <Link to={"/update"}>
+                    <button className="px-4 py-2 text-white bg-yellow-500 hover:bg-yellow-600 rounded-md mr-2">
+                      Update
+                    </button>
+                  </Link>
+                  <button className="px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-md">
+                    Delete
                   </button>
-                </Link>
-                <button className="px-4 py-2 text-white bg-red-500 hover:bg-red-600 rounded-md">
-                  Delete
-                </button>
-              </td>
-            </tr>
-
-            {/* Add more rows for additional tutorials here */}
+                </td>
+              </tr>
+            ))}
           </tbody>
         </table>
       </div>
