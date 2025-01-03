@@ -1,9 +1,11 @@
 import React, { useContext } from "react";
 import { AuthContext } from "../../components/firebase/Authprovider";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const AddTutorial = () => {
   const { user } = useContext(AuthContext);
+  const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -26,6 +28,7 @@ const AddTutorial = () => {
       review,
     };
     axios.post(`${import.meta.env.VITE_localhost}/add`, formData);
+    navigate("/find-tutors");
   };
   return (
     <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6 mt-10">
