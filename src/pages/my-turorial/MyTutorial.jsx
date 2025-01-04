@@ -80,7 +80,7 @@ const MyTutorial = () => {
                 </td>
                 <td className="px-4 py-3 text-gray-800">{myTutorial.review}</td>
                 <td className="px-4 py-3">
-                  <Link to={"/update"}>
+                  <Link to={`/update/${myTutorial._id}`}>
                     <button className="px-4 py-2 text-white bg-yellow-500 hover:bg-yellow-600 rounded-md mr-2">
                       Update
                     </button>
