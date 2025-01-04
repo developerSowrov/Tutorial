@@ -9,10 +9,12 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
+import { useAsyncError } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 const Authprovider = ({ children }) => {
   const [user, setUser] = useState(null);
+  const [loading, setLoading] = useState(true);
   console.log(user);
   const provider = new GoogleAuthProvider();
 
@@ -31,6 +33,7 @@ const Authprovider = ({ children }) => {
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       setUser(currentUser);
+      setLoading(false);
     });
     return () => {
       return unsubscribe();
@@ -43,7 +46,15 @@ const Authprovider = ({ children }) => {
       photoURL: photo,
     });
   };
-  const authValue = { creatUser, login, user, google, LogOut, profile };
+  const authValue = {
+    creatUser,
+    login,
+    user,
+    google,
+    LogOut,
+    profile,
+    loading,
+  };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
   );

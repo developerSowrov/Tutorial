@@ -1,8 +1,17 @@
-import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const MyTutorial = () => {
-  const myTutorials = useLoaderData();
+  const { email } = useParams();
+  const [myTutorials, setMyTutorials] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_localhost}/my-tutorial/${email}`)
+      .then((res) => res.json())
+      .then((data) => {
+        setMyTutorials(data);
+        console.log(data);
+      });
+  }, []);
   return (
     <div>
       <div className="max-w-6xl mx-auto bg-white shadow-md rounded-md p-6 mt-10">

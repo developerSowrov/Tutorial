@@ -1,8 +1,17 @@
-import React from "react";
-import { useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useLoaderData, useParams } from "react-router-dom";
 
 const Details = () => {
-  const teacher = useLoaderData();
+  const { id } = useParams();
+  const [teacher, setTeacher] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_localhost}/details/${id}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setTeacher(data);
+      });
+  }, []);
   return (
     <div>
       <div className="bg-base-200 min-h-screen py-8">
@@ -12,7 +21,7 @@ const Details = () => {
               {/* Tutor Image */}
               <div>
                 <img
-                  src={teacher.image}
+                  src={teacher?.image}
                   alt="Tutor"
                   className="w-full h-auto rounded-md"
                 />
@@ -21,23 +30,23 @@ const Details = () => {
               {/* Tutor Details */}
               <div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-4">
-                  {teacher.name}
+                  {teacher?.name}
                 </h2>
                 <p className="text-gray-600 mb-2">
                   <span className="font-semibold">Language:</span>{" "}
-                  {teacher.language}
+                  {teacher?.language}
                 </p>
                 <p className="text-gray-600 mb-2">
                   <span className="font-semibold">Price:</span>
-                  {teacher.price}
+                  {teacher?.price}
                 </p>
                 <p className="text-gray-600 mb-2">
                   <span className="font-semibold">Review:</span>{" "}
-                  {teacher.review}
+                  {teacher?.review}
                 </p>
                 <p className="text-gray-600 mb-4">
                   <span className="font-semibold">Description:</span>{" "}
-                  {teacher.description}
+                  {teacher?.description}
                 </p>
                 {/* Book Button */}
                 <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">

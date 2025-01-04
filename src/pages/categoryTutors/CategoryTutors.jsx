@@ -1,8 +1,17 @@
-import React from "react";
-import { Link, useLoaderData } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Link, useLoaderData, useParams } from "react-router-dom";
 
 const CategoryTutors = () => {
-  const tutorials = useLoaderData();
+  const { category } = useParams();
+  const [tutorials, setTutorials] = useState(null);
+  useEffect(() => {
+    fetch(`${import.meta.env.VITE_localhost}/find-tutors/${category}`)
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
+        setTutorials(data);
+      });
+  }, []);
   return (
     <div>
       <div className="bg-base-200 mt-20 py-8 rounded-xl">

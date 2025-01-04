@@ -11,6 +11,7 @@ import Details from "../pages/details/Details";
 import Login from "../pages/login/Login";
 import Register from "../pages/registration/Register";
 import CategoryTutors from "../pages/categoryTutors/CategoryTutors";
+import PrivateRoute from "./privateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
   {
@@ -24,41 +25,59 @@ export const router = createBrowserRouter([
       },
       {
         path: "/find-tutors",
-        element: <FindTutors></FindTutors>,
+        element: (
+          <PrivateRoute>
+            <FindTutors></FindTutors>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/find-tutors/:category",
-        element: <CategoryTutors></CategoryTutors>,
-        loader: ({ params }) =>
-          fetch(
-            `${import.meta.env.VITE_localhost}/find-tutors/${params.category}`
-          ),
+        element: (
+          <PrivateRoute>
+            <CategoryTutors></CategoryTutors>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/add-tutorial",
-        element: <AddTutorial></AddTutorial>,
+        element: (
+          <PrivateRoute>
+            <AddTutorial></AddTutorial>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-tutorial/:email",
-        element: <MyTutorial></MyTutorial>,
-        loader: ({ params }) =>
-          fetch(
-            `${import.meta.env.VITE_localhost}/my-tutorial/${params.email}`
-          ),
+        element: (
+          <PrivateRoute>
+            <MyTutorial></MyTutorial>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/my-booked",
-        element: <MyBooked></MyBooked>,
+        element: (
+          <PrivateRoute>
+            <MyBooked></MyBooked>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/update",
-        element: <Update></Update>,
+        element: (
+          <PrivateRoute>
+            <Update></Update>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/tutor/:id",
-        element: <Details></Details>,
-        loader: ({ params }) =>
-          fetch(`${import.meta.env.VITE_localhost}/details/${params.id}`),
+        element: (
+          <PrivateRoute>
+            <Details></Details>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/login",
