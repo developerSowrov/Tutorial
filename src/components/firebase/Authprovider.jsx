@@ -9,7 +9,6 @@ import {
   signOut,
   updateProfile,
 } from "firebase/auth";
-import { useAsyncError } from "react-router-dom";
 
 export const AuthContext = createContext(null);
 const Authprovider = ({ children }) => {

@@ -1,17 +1,34 @@
-import React, { useEffect, useState } from "react";
-import { useLoaderData, useParams } from "react-router-dom";
+import axios from "axios";
+import React, { useContext, useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { AuthContext } from "../../components/firebase/Authprovider";
 
 const Details = () => {
   const { id } = useParams();
+  const { user } = useContext(AuthContext);
   const [teacher, setTeacher] = useState(null);
   useEffect(() => {
     fetch(`${import.meta.env.VITE_localhost}/details/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setTeacher(data);
       });
   }, []);
+  const sendData = {
+    id: teacher?._id,
+    image: teacher?.image,
+    language: teacher?.language,
+    price: teacher?.price,
+    tutorEmail: teacher?.email,
+    email: user.email,
+  };
+  // console.log(data);
+  const dataSend = () => {
+    axios
+      .post(`${import.meta.env.VITE_localhost}/booked`, sendData)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <div className="bg-base-200 min-h-screen py-8">
@@ -49,7 +66,10 @@ const Details = () => {
                   {teacher?.description}
                 </p>
                 {/* Book Button */}
-                <button className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">
+                <button
+                  onClick={dataSend}
+                  className="w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md"
+                >
                   Book Now
                 </button>
               </div>
