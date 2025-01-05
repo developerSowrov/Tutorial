@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/Authprovider";
 
 const Details = () => {
   const { id } = useParams();
+  const navigate = useNavigate();
   const { user } = useContext(AuthContext);
   const [teacher, setTeacher] = useState(null);
   useEffect(() => {
@@ -20,13 +21,17 @@ const Details = () => {
     language: teacher?.language,
     price: teacher?.price,
     tutorEmail: teacher?.email,
+    name:teacher?.name,
     email: user.email,
   };
   // console.log(data);
   const dataSend = () => {
     axios
       .post(`${import.meta.env.VITE_localhost}/booked`, sendData)
-      .then((data) => console.log(data))
+      .then((data) => {
+        console.log(data);
+        navigate("/my-booked");
+      })
       .catch((err) => console.log(err));
   };
   return (

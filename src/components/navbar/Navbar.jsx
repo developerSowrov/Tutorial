@@ -4,6 +4,7 @@ import { AuthContext } from "../firebase/Authprovider";
 
 const Navbar = () => {
   const { user, LogOut } = useContext(AuthContext);
+  console.log(user?.photoURL);
   const signOut = () => {
     LogOut()
       .then((data) => console.log(data))
@@ -35,13 +36,16 @@ const Navbar = () => {
                   className="btn btn-ghost btn-circle avatar tooltip tooltip-bottom"
                   data-tip={user?.displayName}
                 >
-                  <div className="w-10 rounded-full ">
-                    <img
-                      alt="Tailwind CSS Navbar component"
-                      src={user.photoURL}
-                      className=""
-                    />
-                  </div>
+                  {user?.photoURL && (
+                    <div className="w-10 rounded-full ">
+                      <img
+                        alt="Tailwind CSS Navbar component"
+                        src={user?.photoURL}
+                        className=""
+                        data-reference="no-reference"
+                      />
+                    </div>
+                  )}
                 </div>
                 <ul
                   tabIndex={0}

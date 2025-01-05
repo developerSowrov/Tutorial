@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/Authprovider";
 
 const Register = () => {
-  const { creatUser, profile } = useContext(AuthContext);
+  const { creatUser, profile, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -16,7 +16,10 @@ const Register = () => {
       .then((data) => {
         console.log(data);
         profile(name, photoURL)
-          .then((data) => console.log(data))
+          .then((data) => {
+            console.log(data);
+            setUser({ ...data, displayName: name, photoURL: photoURL });
+          })
           .catch((err) => console.log(err));
         navigate("/");
       })

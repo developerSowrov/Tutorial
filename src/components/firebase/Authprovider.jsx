@@ -39,7 +39,6 @@ const Authprovider = ({ children }) => {
     };
   }, []);
   const profile = (name, photo) => {
-    console.log(name, photo, auth);
     return updateProfile(auth.currentUser, {
       displayName: name,
       photoURL: photo,
@@ -53,6 +52,7 @@ const Authprovider = ({ children }) => {
     LogOut,
     profile,
     loading,
+    setUser,
   };
   return (
     <AuthContext.Provider value={authValue}>{children}</AuthContext.Provider>
