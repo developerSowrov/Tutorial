@@ -28,8 +28,7 @@ const Details = () => {
   const dataSend = () => {
     axios
       .post(`${import.meta.env.VITE_localhost}/booked`, sendData)
-      .then((data) => {
-        console.log(data);
+      .then((data) => {;
         navigate("/my-booked");
       })
       .catch((err) => console.log(err));

@@ -11,16 +11,14 @@ const Login = () => {
     const email = form.email.value;
     const pass = form.password.value;
     login(email, pass)
-      .then((data) => {
-        console.log(data);
+      .then((data) => {;
         navigate("/");
       })
       .catch((err) => console.log(err));
   };
   const googleLogin = () => {
     google()
-      .then((data) => {
-        console.log(data);
+      .then((data) => {;
         navigate("/");
       })
       .catch((err) => console.log(err));

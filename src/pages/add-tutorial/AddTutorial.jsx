@@ -15,7 +15,7 @@ const AddTutorial = () => {
     const language = form.language.value;
     const price = form.price.value;
     const description = form.description.value;
-    const review = form.review.value;
+    const review = parseInt(form.review.value);
 
     // Consolidate all form data into an object
     const formData = {
@@ -27,8 +27,9 @@ const AddTutorial = () => {
       description,
       review,
     };
-    axios.post(`${import.meta.env.VITE_localhost}/add`, formData);
-    navigate("/find-tutors");
+    axios
+      .post(`${import.meta.env.VITE_localhost}/add`, formData)
+      .then((data) => navigate("/find-tutors"));
   };
   return (
     <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6 mt-10">

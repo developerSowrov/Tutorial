@@ -96,7 +96,7 @@ const TutorCard = () => {
           </Link>
 
           {/* Card 6 */}
-          <Link to={"/find-tutors/Chiness"}>
+          <Link to={"/find-tutors/Chinese"}>
             <div className="flex items-center justify-between p-4 bg-white shadow-md rounded-md border">
               <div className="flex items-center space-x-4">
                 <img src={chine} alt="Chinese" className="w-10 h-10" />

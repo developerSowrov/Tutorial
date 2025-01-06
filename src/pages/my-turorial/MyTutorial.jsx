@@ -11,7 +11,6 @@ const MyTutorial = () => {
     axios
       .delete(`${import.meta.env.VITE_localhost}/delete/${id}`)
       .then((data) => {
-        console.log(data);
         const remaining = myTutorials.filter((single) => single._id !== id);
         setMyTutorials(remaining);
       })

@@ -3,12 +3,17 @@ import React, { useEffect, useState, useTransition } from "react";
 
 const MyBooked = () => {
   const [bookedData, setBookedData] = useState([]);
-  console.log(bookedData);
   useEffect(() => {
     axios
       .get(`${import.meta.env.VITE_localhost}/booked-tutorial`)
       .then((data) => setBookedData(data.data));
   }, []);
+  const updateReview = (id) => {
+    axios
+      .patch(`${import.meta.env.VITE_localhost}/reviewUpdate/${id}`)
+      .then((data) => console.log(data))
+      .catch((err) => console.log(err));
+  };
   return (
     <div>
       <div className="max-w-6xl mx-auto mt-10">
@@ -37,7 +42,10 @@ const MyBooked = () => {
                 <p className="text-gray-700 mt-1">
                   <span className="font-semibold">Price:</span> ${tutor.price}
                 </p>
-                <button className="mt-4 w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md">
+                <button
+                  onClick={() => updateReview(tutor.id)}
+                  className="mt-4 w-full bg-yellow-500 hover:bg-yellow-600 text-white py-2 px-4 rounded-md"
+                >
                   Review
                 </button>
               </div>

@@ -14,10 +14,8 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     creatUser(email, password)
       .then((data) => {
-        console.log(data);
         profile(name, photoURL)
           .then((data) => {
-            console.log(data);
             setUser({ ...data, displayName: name, photoURL: photoURL });
           })
           .catch((err) => console.log(err));

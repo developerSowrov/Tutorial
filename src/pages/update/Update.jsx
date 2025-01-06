@@ -35,7 +35,6 @@ const Update = () => {
     axios
       .patch(`${import.meta.env.VITE_localhost}/updated/${id}`, formData)
       .then((data) => {
-        console.log(data);
         navigate(`/my-tutorial/${email}`);
       })
       .catch((err) => console.log(err));
