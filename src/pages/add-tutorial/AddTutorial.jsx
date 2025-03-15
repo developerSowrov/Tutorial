@@ -32,7 +32,7 @@ const AddTutorial = () => {
       .then((data) => navigate("/find-tutors"));
   };
   return (
-    <div className="max-w-2xl mx-auto bg-white shadow-md rounded-md p-6 mt-10">
+    <div className="max-w-2xl py-8 bg-base-200 mx-auto  shadow-md rounded-md p-6 mt-10">
       <h2 className="text-2xl font-bold text-gray-800 text-center mb-6">
         Add Tutorials
       </h2>
@@ -52,7 +52,7 @@ const AddTutorial = () => {
             defaultValue={user?.displayName}
             disabled
             placeholder="Enter your name"
-            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            className="w-full bg-white px-4 py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           />
         </div>
 
@@ -71,7 +71,7 @@ const AddTutorial = () => {
             defaultValue={user?.email}
             disabled
             placeholder="Enter your email"
-            className="w-full px-4 py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
+            className="w-full px-4 bg-white py-2 border rounded-md focus:ring-2 focus:ring-yellow-400 focus:outline-none"
           />
         </div>
 
@@ -166,7 +166,7 @@ const AddTutorial = () => {
             name="review"
             disabled
             defaultValue={0}
-            className="w-full px-4 py-2 border bg-gray-100 rounded-md focus:outline-none cursor-not-allowed"
+            className="w-full px-4 py-2 border bg-white rounded-md focus:outline-none cursor-not-allowed"
           />
         </div>
 

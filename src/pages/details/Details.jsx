@@ -21,32 +21,32 @@ const Details = () => {
     language: teacher?.language,
     price: teacher?.price,
     tutorEmail: teacher?.email,
-    name:teacher?.name,
+    name: teacher?.name,
     email: user.email,
   };
   // console.log(data);
   const dataSend = () => {
     axios
       .post(`${import.meta.env.VITE_localhost}/booked`, sendData)
-      .then((data) => {;
+      .then((data) => {
         navigate("/my-booked");
       })
-      .catch((err) =>{
+      .catch((err) => {
         // console.log(err)
       });
   };
   return (
     <div>
-      <div className="bg-base-200 min-h-screen py-8">
+      <div className="md:bg-base-200 min-h-screen py-8 my-20 rounded-lg">
         <div className="max-w-5xl mx-auto px-4">
-          <div className="bg-white shadow-md rounded-lg p-6">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="bg-white shadow-md rounded-lg p-6 lg:mt-10">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 ">
               {/* Tutor Image */}
               <div>
                 <img
                   src={teacher?.image}
                   alt="Tutor"
-                  className="w-full h-auto rounded-md"
+                  className="w-full h-full object-cover rounded-md"
                 />
               </div>
 

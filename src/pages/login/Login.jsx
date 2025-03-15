@@ -28,7 +28,7 @@ const Login = () => {
       });
   };
   return (
-    <div className="flex items-center justify-center mt-20 bg-base-200 p-4">
+    <div className="flex items-center justify-center mt-20 p-4 md:bg-base-200  md:py-20 rounded-lg">
       <div className="w-full max-w-md p-6 rounded-lg shadow-lg bg-white">
         <h1 className="text-3xl font-bold text-center text-yellow-500 mb-6">
           Login to Talkzy
