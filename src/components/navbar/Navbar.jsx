@@ -7,8 +7,12 @@ const Navbar = () => {
   // console.log(user?.photoURL);
   const signOut = () => {
     LogOut()
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        // console.log(data);
+      })
+      .catch((err) => {
+        // console.log(data);
+      });
   };
   return (
     <div className="bg-base-200 p-1">

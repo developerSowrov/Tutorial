@@ -11,17 +11,21 @@ const Login = () => {
     const email = form.email.value;
     const pass = form.password.value;
     login(email, pass)
-      .then((data) => {;
+      .then((data) => {
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   };
   const googleLogin = () => {
     google()
-      .then((data) => {;
+      .then((data) => {
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   };
   return (
     <div className="flex items-center justify-center mt-20 bg-base-200 p-4">

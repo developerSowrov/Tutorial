@@ -16,13 +16,13 @@ const Testimonial = () => {
           </h2>
 
           {/* Testimonials Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {/* Testimonial 1 */}
             <div className="bg-white p-6 shadow-lg rounded-lg">
               <img
                 src={one}
                 alt="Albert Webb"
-                className="w-16 h-16 mx-auto rounded-full mb-4"
+                className="w-16 h-16 mx-auto rounded-full mb-4 object-cover"
               />
               <h3 className="text-lg font-semibold text-orange-500">
                 Albert Webb
@@ -40,7 +40,7 @@ const Testimonial = () => {
               <img
                 src={two}
                 alt="Kelly McMillan"
-                className="w-16 h-16 mx-auto rounded-full mb-4"
+                className="w-16 h-16 mx-auto rounded-full mb-4 object-cover"
               />
               <h3 className="text-lg font-semibold text-orange-500">
                 Kelly McMillan
@@ -54,11 +54,11 @@ const Testimonial = () => {
             </div>
 
             {/* Testimonial 3 */}
-            <div className="bg-white p-6 shadow-lg rounded-lg">
+            <div className="bg-white p-6 md:hidden block lg:block shadow-lg rounded-lg">
               <img
                 src={three}
                 alt="Harold Barnett"
-                className="w-16 h-16 mx-auto rounded-full mb-4"
+                className="w-16 h-16 mx-auto rounded-full mb-4 object-cover"
               />
               <h3 className="text-lg font-semibold text-orange-500">
                 Harold Barnett

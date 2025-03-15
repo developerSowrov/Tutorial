@@ -37,7 +37,9 @@ const Update = () => {
       .then((data) => {
         navigate(`/my-tutorial/${email}`);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   };
   const { name, email, image, description, language, price, review, _id } =
     tutorial;

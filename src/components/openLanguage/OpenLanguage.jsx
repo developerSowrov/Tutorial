@@ -4,18 +4,18 @@ const OpenLanguage = () => {
   return (
     <div>
       <div className="bg-gray-100 px-6 py-12 md:px-16">
-        <div className="flex flex-col md:flex-row items-center md:items-start max-w-7xl mx-auto">
+        <div className="flex flex-col lg:flex-row  items-center lg:items-start max-w-7xl mx-auto">
           {/* Left Image Section */}
-          <div className="w-full md:w-1/2">
+          <div className="w-full md:pb-10 lg:pb-0 lg:w-1/2">
             <img
               src={pic}
               alt="Team working together"
-              className="rounded-lg shadow-lg"
+              className="rounded-lg w-full shadow-lg"
             />
           </div>
 
           {/* Right Text Section */}
-          <div className="w-full md:w-1/2 mt-8 md:mt-0 md:pl-12">
+          <div className="w-full lg:w-1/2 mt-8 md:mt-0 md:pl-12">
             <h1 className="text-4xl font-bold text-gray-800 mb-4">
               OPENING LANGUAGES TO EVERYONE
             </h1>

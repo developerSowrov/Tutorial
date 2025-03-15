@@ -31,7 +31,9 @@ const Details = () => {
       .then((data) => {;
         navigate("/my-booked");
       })
-      .catch((err) => console.log(err));
+      .catch((err) =>{
+        // console.log(err)
+      });
   };
   return (
     <div>

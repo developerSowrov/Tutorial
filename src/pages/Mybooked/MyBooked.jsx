@@ -11,8 +11,12 @@ const MyBooked = () => {
   const updateReview = (id) => {
     axios
       .patch(`${import.meta.env.VITE_localhost}/reviewUpdate/${id}`)
-      .then((data) => console.log(data))
-      .catch((err) => console.log(err));
+      .then((data) => {
+        // console.log(data);
+      })
+      .catch((err) => {
+        // console.log(err);
+      });
   };
   return (
     <div>

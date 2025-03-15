@@ -18,10 +18,14 @@ const Register = () => {
           .then((data) => {
             setUser({ ...data, displayName: name, photoURL: photoURL });
           })
-          .catch((err) => console.log(err));
+          .catch((err) => {
+            // console.log(err);
+          });
         navigate("/");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        // console.log(err);
+      });
   };
   return (
     <div className="flex items-center justify-center mt-20 bg-base-200 p-4">

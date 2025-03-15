@@ -14,7 +14,9 @@ const MyTutorial = () => {
         const remaining = myTutorials.filter((single) => single._id !== id);
         setMyTutorials(remaining);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   useEffect(() => {
