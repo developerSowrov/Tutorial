@@ -5,6 +5,7 @@ import TutorCard from "../../components/tutorCard/TutorCard";
 import OpenLanguage from "../../components/openLanguage/OpenLanguage";
 import Testimonial from "../../components/testimonial/Testimonial";
 import Blog from "../../components/blog/Blog";
+import Faqs from "../../components/faqs/Faqs";
 
 const Home = () => {
   return (
@@ -15,6 +16,7 @@ const Home = () => {
       <OpenLanguage></OpenLanguage>
       <Testimonial></Testimonial>
       <Blog></Blog>
+      <Faqs></Faqs>
     </div>
   );
 };
