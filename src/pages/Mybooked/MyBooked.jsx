@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState, useTransition } from "react";
+import Swal from "sweetalert2";
 
 const MyBooked = () => {
   const [bookedData, setBookedData] = useState([]);
@@ -13,6 +14,8 @@ const MyBooked = () => {
       .patch(`${import.meta.env.VITE_localhost}/reviewUpdate/${id}`)
       .then((data) => {
         // console.log(data);
+
+        Swal.fire("Review Sended");
       })
       .catch((err) => {
         // console.log(err);

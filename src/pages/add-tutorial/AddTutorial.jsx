@@ -2,9 +2,11 @@ import React, { useContext } from "react";
 import { AuthContext } from "../../components/firebase/Authprovider";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const AddTutorial = () => {
   const { user } = useContext(AuthContext);
+  console.log(user);
   const navigate = useNavigate();
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -29,7 +31,10 @@ const AddTutorial = () => {
     };
     axios
       .post(`${import.meta.env.VITE_localhost}/add`, formData)
-      .then((data) => navigate("/find-tutors"));
+      .then((data) => {
+        Swal.fire("Tutorial Added");
+        navigate("/find-tutors");
+      });
   };
   return (
     <div className="max-w-2xl py-8 bg-base-200 mx-auto  shadow-md rounded-md p-6 mt-10">

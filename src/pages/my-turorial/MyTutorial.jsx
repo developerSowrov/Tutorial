@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const MyTutorial = () => {
   const { email } = useParams();
@@ -8,15 +9,33 @@ const MyTutorial = () => {
 
   // Delete function
   const remove = (id) => {
-    axios
-      .delete(`${import.meta.env.VITE_localhost}/delete/${id}`)
-      .then(() => {
-        const remaining = myTutorials.filter((single) => single._id !== id);
-        setMyTutorials(remaining);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axios
+          .delete(`${import.meta.env.VITE_localhost}/delete/${id}`)
+          .then(() => {
+            const remaining = myTutorials.filter((single) => single._id !== id);
+            setMyTutorials(remaining);
+
+            Swal.fire({
+              title: "Deleted!",
+              text: "Your tutorial has been deleted.",
+              icon: "success",
+            });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      }
+    });
   };
 
   useEffect(() => {

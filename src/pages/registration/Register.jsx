@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/Authprovider";
+import Swal from "sweetalert2";
 
 const Register = () => {
   const { creatUser, profile, setUser } = useContext(AuthContext);
@@ -14,6 +15,7 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     creatUser(email, password)
       .then((data) => {
+        setUser(data);
         profile(name, photoURL)
           .then((data) => {
             setUser({ ...data, displayName: name, photoURL: photoURL });
@@ -25,6 +27,8 @@ const Register = () => {
       })
       .catch((err) => {
         // console.log(err);
+
+        Swal.fire(err.code.split("auth/")[1].toUpperCase());
       });
   };
   return (

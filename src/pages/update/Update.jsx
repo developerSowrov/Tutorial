@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const Update = () => {
   const { id } = useParams();
@@ -36,6 +37,7 @@ const Update = () => {
       .patch(`${import.meta.env.VITE_localhost}/updated/${id}`, formData)
       .then((data) => {
         navigate(`/my-tutorial/${email}`);
+        Swal.fire("Tutorial Updated");
       })
       .catch((err) => {
         // console.log(err);

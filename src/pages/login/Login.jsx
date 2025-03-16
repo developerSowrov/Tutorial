@@ -1,6 +1,7 @@
 import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/Authprovider";
+import Swal from "sweetalert2";
 
 const Login = () => {
   const { login, google } = useContext(AuthContext);
@@ -13,18 +14,24 @@ const Login = () => {
     login(email, pass)
       .then((data) => {
         navigate("/");
+        Swal.fire("Login Successfull");
       })
       .catch((err) => {
         // console.log(err);
+        Swal.fire("Email/Password is Invalid");
       });
   };
   const googleLogin = () => {
     google()
       .then((data) => {
         navigate("/");
+
+        Swal.fire("Login Successfull");
       })
       .catch((err) => {
         // console.log(err);
+
+        Swal.fire(err.code);
       });
   };
   return (

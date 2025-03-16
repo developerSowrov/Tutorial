@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useContext, useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { AuthContext } from "../../components/firebase/Authprovider";
+import Swal from "sweetalert2";
 
 const Details = () => {
   const { id } = useParams();
@@ -29,6 +30,7 @@ const Details = () => {
     axios
       .post(`${import.meta.env.VITE_localhost}/booked`, sendData)
       .then((data) => {
+        Swal.fire("Tutor Booked Successfull");
         navigate("/my-booked");
       })
       .catch((err) => {
